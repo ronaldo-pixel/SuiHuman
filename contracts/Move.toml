@@ -1,0 +1,8 @@
+[package]
+name = "contracts"
+edition = "2024.beta" 
+
+[addresses]
+contracts = "0x0"
+
+
