@@ -80,6 +80,10 @@ module contracts::social_media {
         new_v
     }
 
+    public fun is_wallet(registry: &Registry, wallet: address): bool {
+        contains(&registry.users, wallet)
+    }
+
     /****************************************************
     * CREATE USER  (World ID)
     *****************************************************/
@@ -92,7 +96,7 @@ module contracts::social_media {
         let wallet = sender(ctx);
 
         // Prevent duplicate wallet
-        if (contains(&registry.users, wallet)) { abort 1001; };
+        if (is_wallet(registry, wallet)) { abort 1001; };
 
         // Prevent duplicate human
         if (contains(&registry.humans, nullifier)) { abort 1002; };
