@@ -11,6 +11,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { LayoutWrapper } from '@/components/shared/layout-wrapper'
 import { PostCard } from '@/components/post/post-card'
 import { mockPosts } from '@/lib/mock-data'
+import { useApp } from "@/components/context/appcontext"
+
 
 const mockUserProfile = {
   id: 'user1',
@@ -33,7 +35,14 @@ const mockUserProfile = {
 
 export default function ProfilePage() {
   const [isFollowing, setIsFollowing] = useState(false)
-
+  const {
+    humanVerified,
+    setHumanVerified,
+    hasAccount,
+    setHasAccount,
+    walletAddress,
+    setWalletAddress
+  } = useApp();
   return (
     <LayoutWrapper>
       <div className="min-h-screen bg-background">

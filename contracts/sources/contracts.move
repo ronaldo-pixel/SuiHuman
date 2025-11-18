@@ -80,8 +80,12 @@ module contracts::social_media {
         new_v
     }
 
-    public fun is_wallet(registry: &Registry, wallet: address): bool {
+    public fun is_wallet_registered(registry: &Registry, wallet: address): bool {
         contains(&registry.users, wallet)
+    }
+
+    public fun is_human_registered(registry: &Registry, nullifier: vector<u8>): bool {
+        contains(&registry.humans, nullifier)
     }
 
     /****************************************************
@@ -96,10 +100,10 @@ module contracts::social_media {
         let wallet = sender(ctx);
 
         // Prevent duplicate wallet
-        if (is_wallet(registry, wallet)) { abort 1001; };
+        if (is_wallet_registered(registry, wallet)) { abort 1001; };
 
         // Prevent duplicate human
-        if (contains(&registry.humans, nullifier)) { abort 1002; };
+        if (is_human_registered(&registry.humans, nullifier)) { abort 1002; };
 
         let nullifier_for_msg = clone_u8_vector(&nullifier); 
 

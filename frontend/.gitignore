@@ -1,41 +1,87 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# -------------------------
+# Node & Dependencies
+# -------------------------
+node_modules/
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+# -------------------------
+# Next.js Build Output
+# -------------------------
+.next/
+.next/cache/
+out/
+dist/
 
-# testing
-/coverage
+# Turbopack cache
+.turbo/
+.turbopack/
 
-# next.js
-/.next/
-/out/
+# -------------------------
+# Env Files
+# -------------------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# -------------------------
+# Logs
+# -------------------------
 npm-debug.log*
 yarn-debug.log*
+pnpm-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+npm-error.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# -------------------------
+# OS / Editor Files
+# -------------------------
+.DS_Store
+Thumbs.db
 
-# vercel
-.vercel
+# IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json
 
-# typescript
+.idea/
+*.iml
+
+# -------------------------
+# TypeScript
+# -------------------------
 *.tsbuildinfo
-next-env.d.ts
+
+# -------------------------
+# Static Exports
+# -------------------------
+export/
+.ssg-cache/
+
+# -------------------------
+# Generated Files
+# -------------------------
+coverage/
+storybook-static/
+public/.next/
+
+# -------------------------
+# Test Outputs
+# -------------------------
+jest-test-results.json
+.nyc_output/
+
+# -------------------------
+# Temporary / Cache
+# -------------------------
+tmp/
+temp/
+.cache/
+.parcel-cache/
+vercel/
+turbo/
